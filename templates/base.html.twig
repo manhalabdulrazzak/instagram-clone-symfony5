@@ -1,12 +1,72 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Insta-Symfony{% endblock %}</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+            integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ asset('assets/styles/style.css') }}">
+    {% block stylesheets %}{% endblock %}
+
+</head>
+
+<body>
+<div class="row border d-flex align-items-center py-2 bg-white" id="first-nav">
+    <div class="col-lg-2 col-md-4 col-sm-5">
+        <a href="/"> <img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
+    </div>
+    <div class="col-lg-8 col-md-1 col-sm-2"></div>
+    <div class="col-lg-2 col-md-7 col-sm-5">
+        <form method="POST" action="{{ path('search') }}">
+            <label>
+                <input type="search" placeholder="Search..." style="height: 25px; width:200px;" class="form-control"
+                       name="search">
+            </label>
+        </form>
+    </div>
+</div>
+{% block body %}{% endblock %}
+<div class="row my-5"></div>
+<div class="row my-5"></div>
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <svg aria-label="Home" class="_8-yf5 " fill="#262626" height="22" viewBox="0 0 48 48" width="22">
+                    <path d="M45.3 48H30c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2-4.6-4.6-4.6s-4.6 2-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.5-.6 2.1 0l21.5 21.5c.4.4.6 1.1.3 1.6 0 .1-.1.1-.1.2v22.8c.1.8-.6 1.5-1.4 1.5zm-13.8-3h12.3V23.4L24 3.6l-20 20V45h12.3V34.2c0-4.3 3.3-7.6 7.6-7.6s7.6 3.3 7.6 7.6V45z"></path>
+                </svg>
+            </a>
+            <a class="navbar-brand" href="{{ path('create-post') }}"><i class="fas fa-plus-circle"></i></a>
+            <a class="navbar-brand" href="{{ path('profile') }}"><i class="fas fa-heart"></i></a>
+            <a class="navbar-brand" href="{{ path('messages') }}">
+                <svg aria-label="Direct" class="_8-yf5 " fill="#262626" height="22" viewBox="0 0 48 48" width="22">
+                    <path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path>
+                    <path d="M14.7 48.4l2.9-.7"></path>
+                </svg>
+            </a>
+            <a class="navbar-brand" href="{{ path('profile') }}">
+                {# <img src="{{ asset('images/artistes/'~entity.nom|e) }}" alt="" /> #}
+                <img src="{{ asset('assets/img/dogs.jpg') }}" width="35px" height="35px"
+                     style="border-radius: 50%;">
+            </a>
+        </div>
+    </nav>
+{% endif %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+{% block javascripts %}{% endblock %}
+</body>
+
 </html>
