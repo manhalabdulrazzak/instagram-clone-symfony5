@@ -1,6 +1,5 @@
 **instagram-clone via Symfony** 
-Instagram clone Project
-========================
+
 
 - Registration with username, email and password
 - Connection
@@ -47,5 +46,13 @@ Now run this command to run the built-in web server and access the application i
 ```bash
 $ symfony serve
 ```
+\
+<img src="https://github.com/manhalabdulrazzak/instagram-clone/blob/master/examples/homepage.png">
+\
+<img src="https://github.com/manhalabdulrazzak/instagram-clone/blob/master/examples/profile.png">
+\
+<img src="https://github.com/manhalabdulrazzak/instagram-clone/blob/master/examples/messages.png">
+\
+<img src="https://github.com/manhalabdulrazzak/instagram-clone/blob/master/examples/router%20links.png">
 
-And That's it.
+## **And That's it.**
